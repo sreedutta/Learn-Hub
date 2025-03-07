@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .course-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .course {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .course-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .course-price {
+            font-size: 1.1em;
+            color: #007BFF;
+            margin: 10px 0;
+        }
+        .btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Available Courses</h2>
+
+        <div class="course-container">
+            <div class="course">
+                <p class="course-title">Python</p>
+                <p>Python is a versatile and high-level programming language...</p>
+                <p class="course-price">$25</p>
+                <button class="btn" onclick="addToCart('Python')">Add to Cart</button>
+            </div>
+            <div class="course">
+                <p class="course-title">C</p>
+                <p>C is a general-purpose, high-level programming language...</p>
+                <p class="course-price">$22</p>
+                <button class="btn" onclick="addToCart('C')">Add to Cart</button>
+            </div>
+            <div class="course">
+                <p class="course-title">Java</p>
+                <p>Java is a class-based, object-oriented programming language...</p>
+                <p class="course-price">$30</p>
+                <button class="btn" onclick="addToCart('Java')">Add to Cart</button>
+            </div>
+            <div class="course">
+                <p class="course-title">Ruby</p>
+                <p>Ruby is a dynamic, open-source programming language...</p>
+                <p class="course-price">$35</p>
+                <button class="btn" onclick="addToCart('Ruby')">Add to Cart</button>
+            </div>
+            <div class="course">
+                <p class="course-title">PHP</p>
+                <p>PHP is a popular general-purpose scripting language...</p>
+                <p class="course-price">$38</p>
+                <button class="btn" onclick="addToCart('PHP')">Add to Cart</button>
+            </div>
+            <div class="course">
+                <p class="course-title">C#</p>
+                <p>C# (also known as C-Sharp) is a modern object-oriented programming language...</p>
+                <p class="course-price">$22</p>
+                <button class="btn" onclick="addToCart('C#')">Add to Cart</button>
+            </div>
+            <div class="course">
+                <p class="course-title">C++</p>
+                <p>C++ is an extension of the C programming language...</p>
+                <p class="course-price">$25</p>
+                <button class="btn" onclick="addToCart('C++')">Add to Cart</button>
+            </div>
+            <div class="course">
+                <p class="course-title">SQL</p>
+                <p>SQL (Structured Query Language) is the standard language for managing and manipulating relational databases...</p>
+                <p class="course-price">$22</p>
+                <button class="btn" onclick="addToCart('SQL')">Add to Cart</button>
+            </div>
+            <div class="course">
+                <p class="course-title">Flask</p>
+                <p>Flask is a lightweight and flexible web framework for Python...</p>
+                <p class="course-price">$22</p>
+                <button class="btn" onclick="addToCart('Flask')">Add to Cart</button>
+            </div>
+            <div class="course">
+                <p class="course-title">Django</p>
+                <p>Django is a high-level Python web framework...</p>
+                <p class="course-price">$35</p>
+                <button class="btn" onclick="addToCart('Django')">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(courseName) {
+            localStorage.setItem("selectedCourse", courseName);
+            window.location.href = "./buy.html";
+        }
+    </script>
+
+</body>
+</html>

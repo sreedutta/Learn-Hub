@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup or Signin Form</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Form Container */
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Input Fields */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        /* Submit Button */
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .switch-btn {
+            background-color: transparent;
+            color: #4CAF50;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            margin-top: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px;
+                width: 100%;
+                max-width: 90%;
+            }
+
+            .btn {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container" id="signup-form">
+        <h2>Create Account</h2>
+        <form onsubmit="return handleSignup(event)">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" required>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <button class="switch-btn" onclick="toggleForm('signin')">Already have an account? Sign In</button>
+    </div>
+
+    <div class="form-container" id="signin-form" style="display: none;">
+        <h2>Sign In</h2>
+        <form onsubmit="return handleSignin(event)">
+            <div class="form-group">
+                <label for="signin-email">Email Address</label>
+                <input type="email" name="email" id="signin-email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <label for="signin-password">Password</label>
+                <input type="password" name="password" id="signin-password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn">Sign In</button>
+        </form>
+        <button class="switch-btn" onclick="toggleForm('signup')">Don't have an account? Sign Up</button>
+    </div>
+
+    <script>
+        function toggleForm(formType) {
+            document.getElementById("signup-form").style.display = formType === 'signup' ? 'block' : 'none';
+            document.getElementById("signin-form").style.display = formType === 'signin' ? 'block' : 'none';
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+            
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            
+            alert("Signup Successful!");
+            toggleForm('signin');
+        }
+
+        function handleSignin(event) {
+            event.preventDefault();
+            alert("Signin Successful!");
+            window.location.href = "/view-course"; // Redirects to the View Course page
+        }
+    </script>
+
+</body>
+</html>
